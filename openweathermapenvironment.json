@@ -1,0 +1,22 @@
+{
+	"id": "9d87c966-82fe-46af-9095-6fbbde948fbb",
+	"name": "openweathermap",
+	"values": [
+		{
+			"key": "url",
+			"value": "https://api.openweathermap.org/data/2.5",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "APIKEY",
+			"value": "appid=aafcaaeacba2e2a7021adaabcdd0f619",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-02-14T17:21:02.137Z",
+	"_postman_exported_using": "Postman/11.84.4"
+}

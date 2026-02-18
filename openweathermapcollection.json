@@ -1,0 +1,692 @@
+{
+  "info": {
+    "_postman_id": "ef3afaf2-ee42-4331-80e1-383266ea4f16",
+    "name": "openweathermap",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51185095",
+    "_collection_link": "https://go.postman.co/collection/51185095-ef3afaf2-ee42-4331-80e1-383266ea4f16?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GET with Valid API key",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var responseBody = pm.response.json();\r",
+              "var name = responseBody.name;\r",
+              "pm.test(\"Check if the response contains the correct city name\", function () {\r",
+              "    pm.expect(name).to.eql(\"London\");\r",
+              "});\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "aafcaaeacba2e2a7021adaabcdd0f619",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "email",
+              "value": "test@test.ma",
+              "type": "text",
+              "uuid": "b18c5389-e133-49cf-9ddb-5ae749e58c9b"
+            },
+            {
+              "key": "password",
+              "value": "123456",
+              "type": "text",
+              "uuid": "30bf4660-459d-4a64-a36a-c0a48a27e57c"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{url}}/weather?q=London&{{APIKEY}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "weather"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "London"
+            },
+            {
+              "key": "{{APIKEY}}",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET with Invalid API key",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var responseBody = pm.response.json();\r",
+              "var message = responseBody.message;\r",
+              "pm.test(\"Status code is 401\", function () {\r",
+              "    pm.expect(responseBody.cod).to.eql(401);\r",
+              "});\r",
+              "pm.test(\"Error message is correct\", function () {\r",
+              "    pm.expect(message).to.include(\"Invalid API key\");\r",
+              "});\r",
+              "pm.test(\"Status code is 401\", function () {\r",
+              "    pm.response.to.have.status(401);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "aafcaaeacba2e2a7021adaabcdd0f619",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "email",
+              "value": "test@test.ma",
+              "type": "text",
+              "uuid": "b18c5389-e133-49cf-9ddb-5ae749e58c9b"
+            },
+            {
+              "key": "password",
+              "value": "123456",
+              "type": "text",
+              "uuid": "30bf4660-459d-4a64-a36a-c0a48a27e57c"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{url}}/weather?q=London&appid=hgdsjhdfi",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "weather"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "London"
+            },
+            {
+              "key": "appid",
+              "value": "hgdsjhdfi"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET with Missing API key",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var responseBody = pm.response.json();\r",
+              "var message = responseBody.message;\r",
+              "pm.test(\"Status code is 401\", function () {\r",
+              "    pm.expect(responseBody.cod).to.eql(401);\r",
+              "});\r",
+              "pm.test(\"Error message is correct\", function () {\r",
+              "    pm.expect(message).to.include(\"Invalid API key\");\r",
+              "});\r",
+              "pm.test(\"Status code is 401\", function () {\r",
+              "    pm.response.to.have.status(401);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "aafcaaeacba2e2a7021adaabcdd0f619",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "email",
+              "value": "test@test.ma",
+              "type": "text",
+              "uuid": "b18c5389-e133-49cf-9ddb-5ae749e58c9b"
+            },
+            {
+              "key": "password",
+              "value": "123456",
+              "type": "text",
+              "uuid": "30bf4660-459d-4a64-a36a-c0a48a27e57c"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{url}}/weather?q=London",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "weather"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "London"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET weather by city",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var responseBody = pm.response.json();\r",
+              "var cityName = responseBody.name;\r",
+              "pm.test(\"City Name is Rabat\", function () {\r",
+              "    pm.expect(cityName).to.eql(\"Rabat\");\r",
+              "});\r",
+              "pm.test(\"Temperature is above freezing\", function () {\r",
+              "    pm.expect(responseBody.main.temp).to.be.above(273.15);\r",
+              "});\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/weather?q=Rabat&{{APIKEY}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "weather"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "Rabat"
+            },
+            {
+              "key": "{{APIKEY}}",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get weather by city + units Temperature in Celsius",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var responseBody = pm.response.json();\r",
+              "var cityName = responseBody.name;\r",
+              "pm.test(\"City Name is Rabat\", function () {\r",
+              "    pm.expect(cityName).to.eql(\"Rabat\");\r",
+              "});\r",
+              "pm.test(\"Temperature is above freezing\", function () {\r",
+              "    pm.expect(responseBody.main.temp).to.be.above(5)\r",
+              "});\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/weather?q=Rabat&units=metric&{{APIKEY}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "weather"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "Rabat"
+            },
+            {
+              "key": "units",
+              "value": "metric"
+            },
+            {
+              "key": "{{APIKEY}}",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET weather by city + lang",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var responseBody = pm.response.json();\r",
+              "var cityName = responseBody.name;\r",
+              "pm.test(\"City Name is Rabat\", function () {\r",
+              "    pm.expect(cityName).to.eql(\"إقليم الرباط\");\r",
+              "});\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/weather?q=Rabat&lang=ar&{{APIKEY}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "weather"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "Rabat"
+            },
+            {
+              "key": "lang",
+              "value": "ar"
+            },
+            {
+              "key": "{{APIKEY}}",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET weather by coordinates",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var responseBody = pm.response.json();\r",
+              "var cityName = responseBody.name;\r",
+              "pm.test(\"City name is Paris\", function () {\r",
+              "    pm.expect(cityName).to.eql(\"Paris\");\r",
+              "});\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/weather?lat=48.8566&lon=2.3522&{{APIKEY}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "weather"
+          ],
+          "query": [
+            {
+              "key": "lat",
+              "value": "48.8566"
+            },
+            {
+              "key": "lon",
+              "value": "2.3522"
+            },
+            {
+              "key": "{{APIKEY}}",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET forecast",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var responseBody = pm.response.json();\r",
+              "var cityName = responseBody.city.name;\r",
+              "pm.test(\"City name is Paris\", function () {\r",
+              "    pm.expect(cityName).to.eql(\"Paris\");\r",
+              "});\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/forecast?{{APIKEY}}&q=Paris",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "forecast"
+          ],
+          "query": [
+            {
+              "key": "{{APIKEY}}",
+              "value": null
+            },
+            {
+              "key": "q",
+              "value": "Paris"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Invalid city name",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var responseBody = pm.response.json();\r",
+              "var message = responseBody.message;\r",
+              "var code = responseBody.cod;\r",
+              "\r",
+              "pm.test(\"Message is 'city not found'\", function () {\r",
+              "    pm.expect(message).to.eql(\"city not found\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code is 404\", function () {\r",
+              "    pm.expect(code).to.eql(\"404\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code is 404\", function () {\r",
+              "    pm.response.to.have.status(404);\r",
+              "});\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/weather?q=FakeCity&{{APIKEY}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "weather"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "FakeCity"
+            },
+            {
+              "key": "{{APIKEY}}",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Missing required param",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var responseBody = pm.response.json();\r",
+              "var message = responseBody.message;\r",
+              "var code = responseBody.cod;\r",
+              "\r",
+              "pm.test(\"Message is 'Nothing to geocode'\", function () {\r",
+              "    pm.expect(message).to.eql(\"Nothing to geocode\")\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code is 400\", function () {\r",
+              "    pm.expect(code).to.eql(\"400\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code is 400\", function () {\r",
+              "    pm.response.to.have.status(400);\r",
+              "});\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/weather?{{APIKEY}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "weather"
+          ],
+          "query": [
+            {
+              "key": "{{APIKEY}}",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Invalid coordinates",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var responseBody = pm.response.json();\r",
+              "var message = responseBody.message;\r",
+              "var code = responseBody.cod;\r",
+              "\r",
+              "pm.test(\"Message is 'wrong latitude'\", function () {\r",
+              "    pm.expect(message).to.eql(\"wrong latitude\")\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code is 400\", function () {\r",
+              "    pm.expect(code).to.eql(\"400\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code is 400\", function () {\r",
+              "    pm.response.to.have.status(400);\r",
+              "});\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/weather?lat=999&lon=999&{{APIKEY}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "weather"
+          ],
+          "query": [
+            {
+              "key": "lat",
+              "value": "999"
+            },
+            {
+              "key": "lon",
+              "value": "999"
+            },
+            {
+              "key": "{{APIKEY}}",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
