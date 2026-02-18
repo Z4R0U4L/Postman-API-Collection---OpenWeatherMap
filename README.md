@@ -6,7 +6,7 @@ This repository contains a Postman collection to interact with the OpenWeatherMa
 
 - **openweathermapcollection.json**: The Postman collection file for interacting with the OpenWeatherMap API.
 - **openweathermapenvironment.json**: A Postman environment file to set variables such as API keys and other parameters.
-- **API test practice-2026-02-14-14-18-16-488-0.html**: The HTML file containing the results of the API tests.
+- **openweathermap-NEWMAN2026-02-14-17-22-22-427-0.html**: The HTML file containing the results of the API tests.
 
 ## How to Use
 
